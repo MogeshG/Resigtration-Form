@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+label{
+    display: block;
+    margin-bottom: 8px;
+}
+
+select{
+    width: 100%;
+    padding: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.error,.error1 {
+    color: red;
+    font-size: 0.8em;
+}
+
+#submit,#back {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.aligned-content p p {
+    /* display: flex; */
+    margin-left: 30%;
+}
+
+.aligned-content strong {
+    width: 120px;
+    display: inline-block;
+}
+
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#searchForm {
+    margin: 20px 0;
+}
+
+#searchInput {
+    width: 84%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#searchButton {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#searchResultsContainer {
+    margin-top: 20px;
+    display: none; /* Initially hide the container */
+}
+
+.searchResult {
+    border: 1px solid #ddd;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+/* Responsive design */
+@media (max-width: 768px) {
+    form {
+        max-width: 90%;
+    }
+}
