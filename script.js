@@ -99,7 +99,27 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('passwordError').innerHTML = "";
         }
     });
+
+    addEventListener('keydown', function(event)
+    {
+        if(event.key === "Enter"){
+            var searchInput=document.getElementById('searchInput');
+            if(document.activeElement===searchInput)
+            {
+                search();
+                event.preventDefault();
+            }
+            else{
+                save();
+                event.preventDefault();
+            }
+        }
+    });
     
+    document.getElementsByTagName('label').addEventListener('mouseover', function(event){
+        console.log('in');
+        document.activeElement.style.color= green;
+    });
 });
 
     function save(event) {
@@ -178,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
-    function searchByName() {
+    function search() {
         
         var searchInput = document.getElementById('searchInput').value.toLowerCase();
 
