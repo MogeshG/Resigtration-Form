@@ -12,16 +12,20 @@
 <body>
 
 <h2>Registration Form</h2>
+
+
 <form id="searchbar">
-  <input type="text" id="searchInput" class="'inputLabel" placeholder="Search here..." />
+  <input type="text" id="searchInput" placeholder="Search here..." />
   <button type="button" id="searchButton" onclick="search()">Search</button><br>
   <span id="searchError" class="error1"></span>
   <div id="searchResultsContainer"></div>
 </form>
+
+
 <div id="backForm">
-<form id="registrationForm" onsubmit="save()">
+<form id="registrationForm">
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" onchange="">
+    <input type="text" id="name" name="name" required>
     <span id="nameError" class="error"></span>
 
     <br>
@@ -94,7 +98,7 @@
 
     <br>
 
-   <button type="submit" id="submit">Submit</button>
+   <button type="submit" id="submit" onclick="save(event)">Submit</button>
 </form>
 </div>
 </body>
