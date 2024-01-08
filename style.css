@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: linear-gradient(rgb(166, 4, 241),rgb(255, 7, 201),rgb(33, 19, 235));
     margin: 0;
     padding: 0;
 }
@@ -13,20 +13,17 @@ h2 {
 form {
     max-width: 600px;
     margin: 20px auto;
-    background: #fff;
+    background: #ddd;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 label{
     display: block;
     margin-bottom: 8px;
 }
 
-select{
-    width: 100%;
-    padding: 8px;
-}
 
 input {
     width: 100%;
@@ -34,23 +31,41 @@ input {
     margin-bottom: 15px;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 
 .error,.error1 {
     color: red;
     font-size: 0.8em;
 }
+#toggle{
+  display:flex; 
+} 
+#eyeicon{
+    padding-left: 5px;
+    padding-top: 5px;
+    width: auto;
+    height: 30px;
+    cursor: pointer;
+}
+
 
 #submit,#back {
     background-color: #4caf50;
     color: white;
     padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 70px;
     cursor: pointer;
     font-size: 16px;
     width: 100%;
+    box-shadow: 0 0 10px rgba(0, 255, 21, 0.801);
+}
+
+select{
+    border-radius: 10px;
+    width: 100%;
+    padding: 8px;
 }
 
 .aligned-content p p {
@@ -78,9 +93,15 @@ button[type="submit"]:hover {
     box-sizing: border-box;
 }
 
-#searchButton {
-    padding: 10px;
-    cursor: pointer;
+#searchButton{
+    background-color: #4caf50;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 255, 21, 0.801);
+    border-radius: 70px;
+    padding: 10px 15px;
+    border: none;
+    width: 15%;
+    padding: 10px 15px;
 }
 
 #searchResultsContainer {
