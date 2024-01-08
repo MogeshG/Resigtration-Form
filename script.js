@@ -115,15 +115,15 @@ document.addEventListener('DOMContentLoaded', function() {
         var ftype=file.type;
         var fsize=file.size;
         var reader = new FileReader();
-      
         var errorMsgElements = document.getElementsByClassName('error');
+
         for (var i = 0; i < errorMsgElements.length; i++) {
             if (errorMsgElements[i].innerText.trim() !== '') {
                 event.preventDefault();
                 flag=1;
             }
         }
-    if(flag===0)
+    if(flag===0){
         reader.onload= function(event) {
             var base64Image = event.target.result;
 
@@ -154,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         reader.readAsDataURL(file);
     }
+    }
 
     function backToForm(){
         var backForm = document.getElementById('backForm');
@@ -179,12 +180,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('searchError').innerHTML="Enter anything to search";
             return;
         }
-        if(searchInput < 3){
-            var storedData = JSON.parse(localStorage.getItem('allUserData')) || [];
-            var searchResults = storedData.filter(data => data.file.fsize < (searchInput*1024*1024));
-            console.log(searchResults)
-            displaySearchResults(searchResults);          
-        }
+        // if(searchInput < 3){
+        //     var storedData = JSON.parse(localStorage.getItem('allUserData')) || [];
+        //     var searchResults = storedData.filter(data => data.file.fsize < (searchInput*1024*1024));
+        //     console.log(searchResults)
+        //     displaySearchResults(searchResults);          
+        // }
         else if(searchInput > 3){
             var storedData = JSON.parse(localStorage.getItem('allUserData')) || [];
             var searchResults = storedData.filter(data => data.age < (searchInput/365));
@@ -192,9 +193,23 @@ document.addEventListener('DOMContentLoaded', function() {
             displaySearchResults(searchResults);          
         }
         else if(searchInput.typeof='string'){
-            var storedData = JSON.parse(localStorage.getItem('allUserData')) || [];
-            var searchResults = storedData.filter(data => data.username.toLowerCase()===searchInput.toLowerCase());
-            displaySearchResults(searchResults);
+            var match = searchInput.match(/^(\d+)([mMkK]?[bB]?)$/);
+
+            if (match) {
+                var numericValue = parseFloat(match[1]);
+                var unit = match[2].toLowerCase();
+            
+                var searchInputBytes = (unit === 'kb' ? numericValue * 1024 : numericValue * 1024 * 1024);
+            
+                var storedData = JSON.parse(localStorage.getItem('allUserData')) || [];
+                var searchResults = storedData.filter(data => data.file.fsize < searchInputBytes);
+                console.log(searchResults);
+                displaySearchResults(searchResults);
+            } else {
+                var storedData = JSON.parse(localStorage.getItem('allUserData')) || [];
+                var searchResults = storedData.filter(data => data.name.toLowerCase()===searchInput.toLowerCase());
+                displaySearchResults(searchResults);
+            }
         }
     }
 
@@ -235,4 +250,19 @@ document.addEventListener('DOMContentLoaded', function() {
             container.style.display = 'none';
             document.getElementById('searchError').innerHTML = 'No matching records found.';
         }
-}
+    }
+
+    function togglePassword(){
+        var password=document.getElementById('password');
+        var eyeicon=document.getElementById('eyeicon');
+        if(password.type==='password')
+        {
+            password.type='text';
+            eyeicon.src='eye-open.svg';
+            
+        }
+        else{
+            password.type='password';
+            eyeicon.src='eye-close.svg';
+        }
+    }

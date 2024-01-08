@@ -81,7 +81,10 @@
     <br>
 
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+    <div id="toggle">
+      <input type="password" id="password" name="password" required>
+      <img src="eye-close.svg" id="eyeicon" onclick="togglePassword()"></imgsrc>
+    </div>
     <span id="passwordError" class="error"></span>
 
     <br>
